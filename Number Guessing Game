@@ -1,0 +1,27 @@
+import random
+
+def get_random_number(start, end):
+    return random.randint(start, end)
+
+def get_player_guess():
+    guess = input("Guess a number between 1 and 100: ")
+    return int(guess)
+
+def play_game():
+    secret_number = get_random_number(1, 100)
+    attempts = 0
+
+    while True:
+        player_guess = get_player_guess()
+        attempts += 1
+
+        if player_guess == secret_number:
+            print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
+            break
+        elif player_guess < secret_number:
+            print("Your guess is too low. Try again.")
+        else:
+            print("Your guess is too high. Try again.")
+
+# Start the game
+play_game()
